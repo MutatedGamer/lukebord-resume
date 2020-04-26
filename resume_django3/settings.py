@@ -128,4 +128,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
+LOGIN_REDIRECT_URL = '/'
+
 django_heroku.settings(locals())
