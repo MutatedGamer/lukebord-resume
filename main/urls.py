@@ -1,6 +1,7 @@
 
 from django.urls import include, path
 from . import views
+from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -21,4 +22,4 @@ urlpatterns = [
     path('edit/project/<project_id>/', views.edit_project, name="edit_project"),
     path('remove/project/<project_id>/', views.delete_project, name="delete_project"),
     path('edit/home/', views.edit_about, name="edit_about"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
