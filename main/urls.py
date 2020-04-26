@@ -2,6 +2,7 @@ from django.urls import include, path
 from . import views
 from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -22,4 +23,4 @@ urlpatterns = [
     path('edit/home/', views.edit_about, name="edit_about"),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
