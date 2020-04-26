@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'main/header.html' %}
+
+<body style="padding-top: 70px;">
+    
+	<div class="container" id="main">
+		<div class="row">
+			<div class="col col-12 d-flex flex-column justify-content-center align-items-center">
+				<h3> Edit Blog Post</h3>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col col-12">
+				{% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+				<form method="post">
+					{% csrf_token %}
+					<div class="form-group row">
+						<div class="col-12">
+							<input id="title" name="title" type="text" required="required" class="form-control" value="{{ post.title }}">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-12">
+							<input name="body" type="hidden">
+							<div id="editor"> 
+							</div>
+						</div>
+					</div>
+					<div class="form-group row" style="padding-top:40px">
+						<div class="col-12 d-flex justify-content-center">
+							<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	
+	var quill = new Quill('#editor', {
+		modules: {
+			toolbar: [
+				['bold', 'italic'], 
+				['link', 'blockquote', 'code-block', 'image'],
+				[{ list: 'ordered' }, { list: 'bullet' }],
+				[{ 'align': [] }]
+			]
+		},
+		placeholder: 'Post body',
+		theme: 'snow'
+	});
+	
+	var form = document.querySelector('form');
+	form.onsubmit = function() {
+		// Populate hidden form on submit
+		var body = document.querySelector('input[name=body]');
+		body.value = quill.root.innerHTML;
+		form.submit();
+	};
+	$(document).ready(function() {
+		quill.clipboard.dangerouslyPasteHTML(0, '{{ post.body|escapejs }}');
+	});
+	</script>
+</body>
+{% endblock %}

@@ -1,0 +1,264 @@
+body {
+	/*background-color: #303036;*/
+	background-image: url("../img/backgrounds/escheresque_ste/escheresque_ste/escheresque_ste.png");
+    background-repeat: repeat;
+	width:100%;
+	overflow-x:hidden;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding-top: 100vh;
+}
+
+p {
+	margin-bottom: 0px!important;
+}
+
+.noselect {
+	-webkit-user-select: none; /* Safari */        
+	user-select: none; /* Standard */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+}
+
+.nodecoration a{
+	text-decoration: none;
+}
+
+.vertical-align {
+	display: flex;
+	align-items: center;
+}
+
+#main {
+	background-color: #F1F4EF;
+	/*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;*/
+	padding: 30px;
+	box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.65);
+	box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.65);
+	min-height: calc(100vh - 70px);
+	position: relative;
+}
+
+/*Modal Stuff for Image Popups*/
+
+/* Style the Image Used to Trigger the Modal */
+.image-zoom {
+    cursor: pointer;
+}
+
+.image-zoom:hover {
+	opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999999; /* Sit on top */
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    flex-direction: column;
+  	justify-content: center;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+	height: 80%;
+	width: auto;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+		width:100%;
+		height: auto;
+    }
+}
+
+.github {
+	display: inline-block;
+	vertical-align: center;
+	padding-left: 20px;
+	color: #800080;
+}
+
+.github:hover {
+	color:#990099;
+}
+
+.date {
+	font-style: italic;
+	float:right;
+	font-size:12px;
+	display: inline-block;
+	vertical-align: center;
+}
+
+.force-to-bottom {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+.image-zoom {
+	width: 100%;
+	height: auto;
+}
+
+.post-date {
+	font-style: italic;
+	padding-top:20px;
+}
+
+.video-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+.video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.aspect-ratio {
+	width: 340px;
+	height: 0;
+	position: relative;
+	padding-bottom:56%;
+	margin: 10px;
+}
+
+.aspect-ratio iframe {
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
+.ql-editor {
+	background:white;
+}
+
+.ql-syntax {
+	white-space: pre !important;
+	overflow-x: scroll !important;
+	background: #23241f;
+	color: white;
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	line-height:1.42;
+	font-size:0.8rem;
+	padding:10px;
+	border-radius: 2px;
+}
+
+.ql-align-center {
+	text-align: center;
+}
+
+.post-body img {
+	max-width:100%;
+}
+
+.post-body p {
+	margin-bottom: 0px
+}
+
+#facebook {
+	color: #405e9a;
+}
+
+#facebook:hover {
+	color: #2d426c;
+}
+
+#instagram {
+	color: #fe543e;
+}
+
+#instagram:hover {
+	color: #b21601;
+}
+
+#linkedin {
+	color: #283e4a;
+}
+
+#linkedin:hover {
+	color: #1b2a32;
+}
+	
+#twitter {
+	color: #02aced;
+}
+
+#twitter:hover {
+	color: #026d97;
+}
+
+#youtube {
+	color: #ff0202;
+}
+
+#youtube:hover {
+	color: #b30000;
+}

@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'main/header.html' %}
+
+
+<body>
+    <div class="container" id="main" style="position:relative">
+		<span id="main-anchor" style="display:hidden; position:absolute; top:-70px;"></span>
+        <div class="row">
+            <div class="col col-12 col-md-4 d-flex flex-column align-items-center">
+                <img src="{% static 'main/img/aboutmepic.jpg' %}" style="width:100%; height: auto; padding-bottom:10px;">
+				<div class="container-fluid pl-0 pr-0"> 
+					<div  class="row">
+						<div class="col col-12 d-flex justify-content-center">
+							MIT Class of 2020. Computer Science major with an interest in web development and physics. Always looking to learn new things!
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col col-12 d-flex justify-content-around">
+							<a id="facebook" href="http://www.facebook.com/luke.bordonaro.1"><i class="fab fa-facebook-square fa-2x"></i></a>
+							<a id="instagram"  href="http://www.instagram.com/luke_b98"><i class="fab fa-instagram fa-2x"></i></a>
+							<a id="linkedin" href="http://www.linkedin.com/in/lukebordonaro"><i class="fab fa-linkedin fa-2x"></i></a>
+							<a id="twitter"  href="http://www.twitter.com/lukebordonaro"><i class="fab fa-twitter-square fa-2x"></i></a>
+							<a id="youtube"  href="https://www.youtube.com/channel/UC3cRUKVHL5tk44KzyXbV7Cg"><i class="fab fa-youtube fa-2x"></i></a>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col col-12">
+							<a href="mailto:lukebord@mit.edu">lukebord@mit.edu</a>
+						</div>
+					</div>
+					<hr>
+				</div>
+            </div>	
+            <div class="col col-12 col-md-8" >
+				<div class="col col-12">
+					<h1 style="text-align: center">
+					{{ about.header }}	
+					</h1>
+					{{ about.body|safe }} 
+				</div>
+            </div>
+        </div>
+        <br>
+        <br>
+		{% if user.is_authenticated %}
+		<div class="row">
+			<div class="col col-12 d-flex justify-content-around">
+				<form action="{% url 'edit_about' %}" method="get">
+					{% csrf_token %}
+					<button name="submit" type="submit" class="btn btn-warning">Edit</button>
+				</form>
+			</div>
+		</div>
+		{% endif %}
+       {% include 'main/footer.html' %} 
+    </div>
+    <script src="{% static 'main/js/nav.js' %}"></script>
+</body>
+{% endblock %}
