@@ -20,7 +20,12 @@
 		<hr>
 		<div class="row">
 			<div class="col col-12 post">
-        <h3><a href="{% url 'blog_post' post.id %}">{{ post.title }}</a></h3>
+        <h3>
+          {{ post.title }}
+          <a href="{% url 'blog_post' post.id %}">
+            <i class="fas fa-video"></i>
+          </a>
+        </h3>
 
 				<div class="post-body">
 					{{ post.body|safe }}	
