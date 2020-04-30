@@ -19,6 +19,14 @@ p {
 	-ms-user-select: none; /* IE10+/Edge */
 }
 
+.ql-size-large {
+	font-size: 1.5rem;
+}
+
+.ql-size-huge {
+	font-size: 2rem;
+}
+
 .nodecoration a{
 	text-decoration: none;
 }

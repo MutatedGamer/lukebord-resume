@@ -26,7 +26,7 @@ def projects(request):
 def blog(request):
 	context = dict()
 	context['page'] = 'blog'
-	posts = BlogPost.objects.order_by('pub_date')
+	posts = BlogPost.objects.order_by('-pub_date')
 	context['posts'] = posts
 	return render(request, 'main/blog.html', context)
 
@@ -76,6 +76,11 @@ def edit_video(request, video_id):
 	video = get_object_or_404(Video, pk=video_id)
 	context = {'page': 'video', 'video': video}
 	return render(request, 'main/edit_video.html', context)
+
+def blog_post(request, post_id):
+    post = get_object_or_404(BlogPost, pk=post_id)
+    context = {'page': 'blog', 'post': post}
+    return render(request, 'main/blog_post.html', context)
 
 @login_required
 def add_blog(request):
