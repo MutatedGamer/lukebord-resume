@@ -83,7 +83,7 @@ DATABASES = {
     }
 }
 
-if os.environ['env'] == 'production':
+if os.environ['ENV'] == 'production':
     # Configure Postgres database
     DATABASES = {
         'default': {
