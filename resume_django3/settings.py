@@ -27,7 +27,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'lukebord-resume.herokuapp.com', 'lukebord.com', 'lukebordonaro.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'lukebord-resume.herokuapp.com', 'lukebord.com', 'lukebordonaro.com', 'https://lukebord-resume.azurewebsites.net/']
 
 
 # Application definition
