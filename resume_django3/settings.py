@@ -86,7 +86,8 @@ DATABASES = {
 
 
 if os.environ.get('DATABASE_URL'):
-    DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
+    print(os.environ['DATABASE_URL'])
+    DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'], conn_max_age=600)
 
 
 # Password validation
