@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,6 +91,7 @@ if os.environ['ENV'] == 'production':
             'HOST': os.environ['DBHOST'],
             'USER': os.environ['DBUSER'],
             'PASSWORD': os.environ['DBPASS']
+            'sslmode': 'require'
         }
     }
 
@@ -192,4 +192,3 @@ LOGGING = {
     }
 }
 
-django_heroku.settings(locals(), staticfiles=False)
