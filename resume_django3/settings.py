@@ -90,8 +90,10 @@ if os.environ['ENV'] == 'production':
             'NAME': os.environ['DBNAME'],
             'HOST': os.environ['DBHOST'],
             'USER': os.environ['DBUSER'],
-            'PASSWORD': os.environ['DBPASS']
-            'sslmode': 'require'
+            'PASSWORD': os.environ['DBPASS'],
+            'OPTIONS': {
+                'sslmode': 'require'
+            }
         }
     }
 
