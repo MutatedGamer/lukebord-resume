@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'lukebord-resume.herokuapp.com', 'lukebord.com', 'lukebordonaro.com', 'https://lukebord-resume.azurewebsites.net/']
+ALLOWED_HOSTS = ['127.0.0.1', 'lukebord-resume.herokuapp.com', 'lukebord.com', 'lukebordonaro.com', 'lukebord-resume-2.azurewebsites.net']
 
 
 # Application definition
@@ -99,7 +99,7 @@ if os.environ['ENV'] == 'production':
 
     # Setup Azure storages
     DEFAULT_FILE_STORAGE = 'main.storage_backends.AzureMediaStorage'
-    STATICFILES_STORAGE  = 'main.storage_backends.AzureStaticStorage'
+    STATICFILES_STORAGE = 'main.storage_backends.AzureStaticStorage'
 
     AZURE_STORAGE_KEY = os.environ.get('AZURE_STORAGE_KEY', False)
     AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME', '')  # your account name
@@ -180,4 +180,3 @@ LOGGING = {
         },
     }
 }
-
