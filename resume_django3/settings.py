@@ -98,8 +98,8 @@ if os.environ['ENV'] == 'production':
     }
 
     # Setup Azure storages
-    DEFAULT_FILE_STORAGE = 'django_on_azure.backend.AzureMediaStorage'
-    STATICFILES_STORAGE  = 'django_on_azure.backend.AzureStaticStorage'
+    DEFAULT_FILE_STORAGE = 'main.storage_backends.AzureMediaStorage'
+    STATICFILES_STORAGE  = 'main.storage_backends.AzureStaticStorage'
 
     AZURE_STORAGE_KEY = os.environ.get('AZURE_STORAGE_KEY', False)
     AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME', '')  # your account name
