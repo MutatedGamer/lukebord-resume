@@ -20,13 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SECRET_KEY = os.environ['SECRET_KEY']
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
+DEBUG = True
+SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['127.0.0.1',  'www.lukebord.com', 'www.lukebordonaro.com', 'lukebord.com', 'lukebordonaro.com', 'lukebord-resume-2.azurewebsites.net']
-
 
 # Application definition
 
@@ -83,6 +79,11 @@ DATABASES = {
 }
 
 if os.environ['ENV'] == 'production':
+    # Set SSL and debug
+    DEBUG = False
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     # Configure Postgres database
     DATABASES = {
         'default': {
@@ -110,7 +111,13 @@ if os.environ['ENV'] == 'production':
 
     STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_STATIC_CONTAINER}/'
     MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_MEDIA_CONTAINER}/'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles'), ]
 
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
